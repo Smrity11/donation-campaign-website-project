@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 
 
 const DonationsDetails = () => {
   const [donate, setDonate] = useState([]);
   const [loading ,setLoading] = useState(true)
   const data =useParams()
-  console.log(data);
+ 
   useEffect(() => {
     fetch("/donation.json")
       .then((res) => res.json())
@@ -20,10 +20,34 @@ const DonationsDetails = () => {
       });
   }, []);
 const singleData = donate.find(donate => donate.id == data.id)
-console.log(singleData?.img);
+
+
+const handleDataStore =() =>{
+    console.log('object');
+    const addedDonationArray =[]
+    const select =JSON.parse(localStorage.getItem('selectPrice'))
+    
+    if(!select){
+        addedDonationArray.push(singleData)
+        localStorage .setItem('selectPrice',JSON.stringify(addedDonationArray))
+        alert('product addeded')
+    }
+    else{
+        const isExist =select.find(donate => donate.id == data.id)
+        if(!isExist){
+            addedDonationArray.push(...select,singleData)
+        localStorage .setItem('selectPrice',JSON.stringify(addedDonationArray))
+        alert('product addeded')
+}
+    else{
+        console.log('already ase');
+    }
+        }
+        
+}
   return(
   <>
-<div className="px-28">
+<div className="px-8 md:px-28">
       {loading ? (
         <>
           <div className="flex">
@@ -33,21 +57,38 @@ console.log(singleData?.img);
       ) : singleData ? (
         <>
           <div>
-           
-            <div className="">
-              <img className="w-full" src={singleData?.img} alt="" />
-
-              <div>
-                <h2 className="text-4xl font-semibold">
+          <div className="relative mt-20">
+     
+     <img src={singleData?.img} alt="Background Image" className="w-full h-[80vh] object-cover" />
+             
+             <div className="absolute inset-x-0 bottom-0 h-20 bg-white bg-opacity-20"></div>
+             
+             
+             <div className="absolute bottom-0 p-4">
+                 <button onClick={handleDataStore} className="bg-[#FF444A]  hover:bg-opacity-70 text-white py-2 px-4 rounded">Donate ${singleData.price}</button>
+             </div>
+            
+         </div>
+         <div>
+                <h2 className="text-4xl font-semibold mt-12">
                   {singleData?.title}
                 </h2>
                 <p className="text-base text-slate-700 mt-3 "> {singleData?.description}</p>
-                {/* <p>achievement: {singleData.achievement}</p> */}
+              </div>
+            {/* <div className="mt-20">
+              <img className="w-full h-[80vh]" src={singleData?.img} alt="" />
+             <div className="bg-black h-[100px] ">
+            <button  onClick={handleDataStore} className="mx-[50px] my-[30px] px-4 py-2 text-white font-bold bg-[#FF444A]">Donate ${singleData.price}</button>
+             </div>
+              <div>
+                <h2 className="text-4xl font-semibold mt-12">
+                  {singleData?.title}
+                </h2>
+                <p className="text-base text-slate-700 mt-3 "> {singleData?.description}</p>
               </div>
               <div>
-               
               </div>
-            </div>
+            </div> */}
           </div>
         </>
       ) : (
