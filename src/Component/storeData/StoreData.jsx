@@ -27,7 +27,7 @@ const StoreData = ({prices}) => {
     <div >
         <h2 className="w-fit px-3 py-[1px] rounded text-sm"  style={{ ...dynamicCategoryStyle, ...dynamicStyle }}>{category}</h2>
 
-        <p className="text-lg" style={dynamicStyle} >{title}</p>
+        <p className="text-xl font-semibold" >{title}</p>
         <p style={dynamicStyle}>${price}</p>
         <NavLink to={`/donate/${id}`}>
         <button style={dynamicButtonStyle} className="text-white font-bold px-4 rounded py-1 mt-2">View Details</button>

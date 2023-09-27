@@ -12,7 +12,6 @@ const [filteredData, setFilteredData] = useState([]);
   //     setSearchText(e.target.value);
   //   };
 
-  const test =[1,2,3,4,5]
 
   const handleSearchClick = () => {
     const filtered = donations.filter((item) =>
@@ -24,11 +23,6 @@ const [filteredData, setFilteredData] = useState([]);
 
   const handleSearchInputChange = (e) => {
     setSearchText(e.target.value);
-  };
-
-  const handleResetClick = () => {
-    setSearchText("");
-    setFilteredData(filteredData);
   };
 
   const categorie = donations.filter((item) =>
@@ -50,7 +44,7 @@ const [filteredData, setFilteredData] = useState([]);
         }}
       >
         {/* This is Banner */}
-        <div className="px-8">
+        <div className="px-8 ">
           <h1 className="text-center text-4xl font-bold pt-[300px]">
             I Grow By Helping People In Need
           </h1>
@@ -78,7 +72,7 @@ const [filteredData, setFilteredData] = useState([]);
         </div>
         {/* This is Banner */}
       </div>
-      <div className="px-8 md:px-28 my-18">
+      <div className="px-8 md:px-28 mb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-between gap-8">
           {searchText === ""
             ? donations.map((donation) => (
@@ -95,17 +89,7 @@ const [filteredData, setFilteredData] = useState([]);
               ))}
         </div>
       </div>
-     {
-      test.lenght > 2 ? <div className="text-center py-8">
-        <button
-                onClick={handleResetClick}
-                type="submit"
-                className="btn text-white font-bold  bg-[#FF444A]  shadow-md rounded-e-md"
-              >
-                See all
-              </button>
-      </div> : '<p>hi</p>'
-     }
+    
     </>
   );
 };

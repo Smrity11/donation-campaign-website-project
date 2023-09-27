@@ -30,7 +30,8 @@ const DonationsDetails = () => {
     if (!select) {
       addedDonationArray.push(singleData);
       localStorage.setItem("selectPrice", JSON.stringify(addedDonationArray));
-      alert("product addeded");
+      swal("Good job!", "Donate successfully", "success");
+
     } else {
       const isExist = select.find((donate) => donate.id == data.id);
       if (!isExist) {

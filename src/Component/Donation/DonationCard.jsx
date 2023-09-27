@@ -20,7 +20,7 @@ const DonationCard = ({donation}) => {
       };
     return (
        <NavLink to={`/donate/${id}`}>
-        <div>
+        <div >
          <div  style={dynamicBgStyle}>
         <img className="w-full" src={img} alt={title} />
        
