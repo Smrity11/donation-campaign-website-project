@@ -33,7 +33,7 @@ const StoreData = ({prices}) => {
         <button style={dynamicButtonStyle} className="text-white font-bold px-4 rounded py-1 mt-2">View Details</button>
         </NavLink>
         </div>
-        
+       
     </div>
     </div>
         </div>

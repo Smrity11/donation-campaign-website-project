@@ -8,7 +8,7 @@ const Navbar = () => {
             <div className="static  md:flex  justify-between items-center py-4 px-8 md:px-28">
                 <div className="flex justify-center md:grid md:justify-start
                  ">
-                    <img className="w-[220px] " src="./image/Logo.png"></img>
+                    <img className="w-[220px] " src="https://i.ibb.co/ZfQxdnS/Logo.png"></img>
                 </div>
                 <ol className="flex gap-8 mt-8 items-center justify-center text-lg font-bold md:mt-0">
                <li>
